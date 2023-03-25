@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  delfin:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    container_name: delfin
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MY_SQL_DATABASE: mydb
+    volumes:
+      - ./schemas:/var/lib/mysql:rw
